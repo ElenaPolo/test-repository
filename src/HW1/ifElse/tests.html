@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang ="en">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Тест</title>
+<!-- подключаем стили Mocha, для отображения результатов -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <!-- подключаем библиотеку Mocha -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+  <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+<script>
+    mocha.setup('bdd');
+</script>
+
+  <!-- подключаем chai -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <!-- в chai есть много всего, выносим assert в глобальную область -->
+<script>
+    var assert = chai.assert;
+</script>
+<script src="./task1.js"></script>
+<script src="./task2.js"></script>
+<script src="./task3.js"></script>
+<script src="./task4.js"></script>
+<script src="./task5.js"></script>    
+</head>
+<body>
+    <!-- в элементе с id="mocha" будут результаты тестов -->
+  <div id="mocha"></div>
+  <!-- запустить тесты! -->
+  <script>
+    
+    describe("ifElse, task1",function () {
+      it("Add numbers 5 and 2",function () {
+        assert.equal(addOrMult(5,2),7);
+      })
+      it("Add numbers 6 and 2",function () {
+        assert.equal(addOrMult(6,2),12);
+      })
+    })
+
+    describe("ifElse, task2",function () {
+      it("Add numbers 2 and 2",function () {
+        assert.equal(whatQuart(2,2),"First quarter");
+      })
+      it("Add numbers -2 and -2",function () {
+        assert.equal(whatQuart(-2,-2),"Third quarter");
+      })
+    })
+
+    describe("ifElse, task3",function () {
+      it("Add 1, 2, 3",function () {
+        assert.equal(addPositive(1,2,3),6);
+      })
+      it("Add 1,-2,3",function () {
+        assert.equal(addPositive(1,-2,3),4);
+      })
+    })
+
+    describe("ifElse, task4",function () {
+      it("Add 1, 2, 3",function () {
+        assert.equal(findMax(1,2,3),9);
+      })
+    })
+
+    describe("ifElse, task5",function () {
+      it("Add 42",function () {
+        assert.equal(calcRating(42),"D");
+      })
+      it("Add 142",function () {
+        assert.equal(calcRating(142),"Error!");
+      })
+    })
+  
+  
+  </script>
+  
+  <script>
+    mocha.run();
+  </script>
+        
+  
+  </body>
+  </html>

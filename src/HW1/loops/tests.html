@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML>
+<html lang ="en">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Тест</title>
+<!-- подключаем стили Mocha, для отображения результатов -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <!-- подключаем библиотеку Mocha -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+  <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+<script>
+    mocha.setup('bdd');
+</script>
+
+  <!-- подключаем chai -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <!-- в chai есть много всего, выносим assert в глобальную область -->
+<script>
+    var assert = chai.assert;
+</script>
+<script src="./task1.js"></script>
+<script src="./task2.js"></script>
+<script src="./task3.js"></script>
+<script src="./task4.js"></script>
+<script src="./task5.js"></script>
+<script src="./task6.js"></script>     
+</head>
+<body>
+    <!-- в элементе с id="mocha" будут результаты тестов -->
+  <div id="mocha"></div>
+  <!-- запустить тесты! -->
+  <script>
+    
+    describe("loops, task1",function () {
+      it("Add 1 and 99",function () {
+        assert.equal(sumChet(1,99),"Sum is 2450, amount is 49");
+      })
+    })
+
+    describe("loops, task2",function () {
+      it("Add 7",function () {
+        assert.equal(ifSimple(7),"7 is simple");
+      })
+      it("Add 27",function () {
+        assert.equal(ifSimple(27),"27 is not simple");
+      })
+    })
+
+    describe("loops, task3",function () {
+      it("25 in first function",function () {
+        assert.equal(findKoren(25),5);
+      })
+      it("25 in second function",function () {
+        assert.equal(findKoren2(25),5);
+      })
+    })
+
+    describe("loops, task4",function () {
+      it("Add 5",function () {
+        assert.equal(calcFactorial(5),120);
+      })   
+    })
+
+    describe("loops, task5",function () {
+      it("Add 1234",function () {
+        assert.equal(summaChisel(1234),10);
+      })   
+    })
+    
+    describe("loops, task6",function () {
+      it("Add 14263",function () {
+        assert.equal(reverseNum(14263),36241);
+      })   
+    })  
+    
+  </script>
+  
+  <script>
+    mocha.run();
+  </script>
+        
+  
+  </body>
+  </html>
