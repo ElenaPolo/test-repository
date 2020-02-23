@@ -1,0 +1,67 @@
+﻿<!DOCTYPE HTML>
+<html lang ="en">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Тест</title>
+<!-- подключаем стили Mocha, для отображения результатов -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <!-- подключаем библиотеку Mocha -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+  <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+<script>
+    mocha.setup('bdd');
+</script>
+
+  <!-- подключаем chai -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <!-- в chai есть много всего, выносим assert в глобальную область -->
+<script>
+    var assert = chai.assert;
+</script>
+<script src="./task1.js"></script>
+<script src="./task2.js"></script>
+<script src="./task3.js"></script>
+<script src="./task4.js"></script>
+</head>
+<body>
+    <!-- в элементе с id="mocha" будут результаты тестов -->
+  <div id="mocha"></div>
+  <!-- запустить тесты! -->
+  <script>
+    
+    describe("functions, task1",function () {
+      it("Day number 2",function () {
+        assert.equal(getWeekDay(2),'Tuesday');
+      })
+    })
+
+    describe("functions, task2",function () {
+      it("enter 456",function () {
+        assert.equal(writeNumber(456),'четыреста пятьдесят шесть ');
+      })
+    })
+
+    describe("functions, task3",function () {
+      it('enter четыреста пятьдесят шесть ',function () {
+        assert.equal(writeChislo("четыреста пятьдесят шесть"), 456);
+      })
+    })
+
+    describe("functions, task4",function () {
+      it('enter points 1.1 and 4.5',function () {
+        assert.equal(pointDistance(1,1,4,5), 5);
+      })
+      it('enter points 10.-1 and 4.15',function () {
+        assert.equal(pointDistance(10,-1,4,15), 17);
+      })
+    })
+
+  </script>
+  
+  <script>
+    mocha.run();
+  </script>
+        
+  
+  </body>
+  </html>

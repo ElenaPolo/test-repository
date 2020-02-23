@@ -1,8 +1,14 @@
-let array = [1, 3, 7, -4, 2, 9];
- let sum = 0;
+"use strict";
+
+function nechetSum(a){
+    let sum = 0;
                 
-                for (let i=1; i<len; i=i+2){
-                    sum = sum+array[i];
-                }
+    for (let i=1; i<a.length; i=i+2){
+        sum = sum+a[i];
+    }
+    return sum;
+}
+               
                 
-                console.log("5. ñóììà ýëåìåíòîâ ìàññèâà ñ íå÷åòíûìè èíäåêñàìè "+ sum);
+let w = [1, 3, 7, -4, 2, 9];
+console.log("Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð° Ñ Ð½ÐµÑ‡ÐµÑ‚Ð½Ñ‹Ð¼Ð¸ Ð¸Ð½Ð´ÐµÐºÑÐ°Ð¼Ð¸ "+ nechetSum(w));

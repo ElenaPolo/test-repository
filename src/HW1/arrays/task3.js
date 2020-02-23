@@ -1,12 +1,18 @@
-let array = [1, 3, 7, -4, 2, 9];
-let amin = array[0];
-let imin = 0;
-let len = array.length;
-            	
-for (let i=1; i<len; i++){
-	if(array[i]<amin){
-     		amin=array[i];
-    		imin = i;
-        }
+"use strict";
+
+function indexMin(a){
+	
+	let amin = a[0];
+	let imin = 0;
+	let len = a.length;
+					
+	for (let i=1; i<len; i++){
+		if(a[i]<amin){
+				imin = i;
+			}
+	}
+ return imin;
 }
- console.log("3. èíäåêñ ìèíèìàëüíîãî ýëåìåíòà ìàññèâà "+ imin);
+
+let s = [1, 3, 7, -4, 2, 9];
+console.log("Ð˜Ð½Ð´ÐµÐºÑ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð¼Ð°ÑÑÐ¸Ð²Ð° "+ indexMin(s));

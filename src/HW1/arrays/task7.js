@@ -1,9 +1,15 @@
-let array = [1, 3, 7, -4, 2, 9];
-var numb = 0;
+"use strict";
 
-                array.forEach(function(item){
-                if(item % 2 !== 0){
-                numb ++;
-                }
-                });
-                console.log("7. количество нечетных элементов массива " + numb);
+function nechetNum(a){
+    var num = 0;
+    a.forEach(function(item){
+        if(item % 2 !== 0){
+        num ++;
+        }
+    });
+    return num;
+}
+         
+
+let bb = [1, 3, 7, -4, 2, 9];
+console.log("РљРѕР»РёС‡РµСЃС‚РІРѕ РЅРµС‡РµС‚РЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° - " + nechetNum(bb));

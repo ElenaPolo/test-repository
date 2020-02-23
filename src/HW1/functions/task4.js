@@ -1,18 +1,12 @@
-class Point {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
+"use strict"; 
+ 
+ function pointDistance(ax, ay, bx, by) {
+ let x = bx - ax;
+ let y = by - ay;  
+
+    return Math.round(Math.hypot(x, y));
   }
 
-  static distance(a, b) {
-    const dx = a.x - b.x;
-    const dy = a.y - b.y;
 
-    return Math.hypot(dx, dy);
-  }
-}
 
-const p1 = new Point(1, 1);
-const p2 = new Point(4, 5);
-
-console.log(Point.distance(p1, p2));
+console.log(pointDistance(1,1,4,5));

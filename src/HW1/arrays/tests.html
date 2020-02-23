@@ -27,7 +27,6 @@
 <script src="./task7.js"></script>
 <script src="./task8.js"></script>
 <script src="./task9.js"></script>
-<script src="./task10.js"></script>     
 </head>
 <body>
     <!-- в элементе с id="mocha" будут результаты тестов -->
@@ -42,8 +41,66 @@
       })
     })
 
+    describe("arrays, task2",function () {
+      it("Add 1 2 3",function () {
+        let a = [1,2,3];
+        assert.equal(arrayMax(a),3);
+      })
+    })
+
+    describe("arrays, task3",function () {
+      it("Add 1 2 3",function () {
+        let a = [1,2,3];
+        assert.equal(indexMin(a),0);
+      })
+    })
+
+    describe("arrays, task4",function () {
+      it("Add 1 2 3",function () {
+        let a = [1,2,3];
+        assert.equal(indexMax(a),2);
+      })
+    })
+
+    describe("arrays, task5",function () {
+      it("Add 1 2 3 4 5",function () {
+        let a = [1,2,3,4,5];
+        assert.equal(nechetSum(a),6);
+      })
+    })
+
+    describe("arrays, task6",function () {
+      it("Add 1 2 3 4 5",function () {
+        let a = [1,2,3,4,5];
+        assert.deepEqual(reverseArray(a),[5,4,3,2,1]);
+      })
+    })
     
-    
+    describe("arrays, task7",function () {
+      it("Add 1 2 3 4 5",function () {
+        let a = [1,2,3,4,5];
+        assert.equal(nechetNum(a),3);
+      })
+    })
+
+    describe("arrays, task8",function () {
+      it("Add 1 2 3 4",function () {
+        assert.deepEqual(replHalf([1,2,3,4]), [3,4,1,2]);
+      })
+    })
+
+    describe("arrays, task8",function () {
+      it("Bubble 6 3 4 2 0 7",function () {
+        assert.deepEqual(bubbleSort([6, 3, 4, 2, 0, 7]), [0,2,3,4,6,7]);
+      })
+      it("Select 6 3 4 2 0 7",function () {
+        assert.deepEqual(selectSort([6, 3, 4, 2, 0, 7]), [0,2,3,4,6,7]);
+      })
+      it("Insert 6 3 4 2 0 7",function () {
+        assert.deepEqual(insertSort([6, 3, 4, 2, 0, 7]), [0,2,3,4,6,7]);
+      })
+    })
+
   </script>
   
   <script>
