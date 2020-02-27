@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html lang ="en">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Тест</title>
+<!-- подключаем стили Mocha, для отображения результатов -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <!-- подключаем библиотеку Mocha -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+  <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+<script>
+    mocha.setup('bdd');
+</script>
+
+  <!-- подключаем chai -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <!-- в chai есть много всего, выносим assert в глобальную область -->
+<script>
+    var assert = chai.assert;
+</script>
+<script src="./Alist.js"></script>
+</head>
+<body>
+    <!-- в элементе с id="mocha" будут результаты тестов -->
+  <div id="mocha"></div>
+  <!-- запустить тесты! -->
+  <script>
+    
+    describe("alist, size",function () {
+      const alist = new Alist([1, 2, 3]);  
+      it("search alist size",function () {
+        assert.equal(alist.size(),3);
+      })
+    })
+
+    describe("alist, addStart",function () {
+      const alist = new Alist([1, 2, 3]);  
+      it("add first 5",function () {
+        assert.deepEqual(alist.addStart(5),[5,1,2,3]);
+      })
+    })
+
+    describe("alist, addEnd",function () {
+      const alist = new Alist([1, 2, 3]);  
+      it("add last 5",function () {
+        assert.deepEqual(alist.addEnd(5),[1,2,3,5]);
+      })
+    })
+
+    describe("alist, delStart",function () {
+      const alist = new Alist([1, 2, 3]);  
+      it("del first",function () {
+        assert.equal(alist.delStart(),1);
+      })
+      it("alist after del first",function () {
+        assert.deepEqual(alist.array,[2,3]);
+      })
+    })
+
+    describe("alist, delEnd",function () {
+      const alist = new Alist([1, 2, 3]);  
+      it("del last",function () {
+        assert.equal(alist.delEnd(),3);
+      })
+      it("alist after del last",function () {
+        assert.deepEqual(alist.array,[1,2]);
+      })
+    })
+
+    describe("alist, delPosition",function () {
+      const alist = new Alist([1, 2, 3, 4, 5, 6]);  
+      it("del position",function () {
+        assert.equal(alist.delPosition(2),3);
+      })
+      it("alist after del position",function () {
+        assert.deepEqual(alist.array,[1,2,4,5,6]);
+      })
+    })
+
+    describe("alist, get",function () {
+      const alist = new Alist([1, 2, 3, 4, 5, 6]);  
+      it("get second element",function () {
+        assert.equal(alist.get(1),2);
+      })
+    })
+
+    describe("alist, set",function () {
+      const alist = new Alist([1, 2, 3, 4, 5, 6]);  
+      it("set 8 to second place",function () {
+        assert.deepEqual(alist.set(8,1),[1, 8, 3, 4, 5, 6]);
+      })
+      it("set 8 to seventh place",function () {
+        assert.equal(alist.set(8,7),"Error!");
+      })
+    })
+
+    describe("alist, toString",function () {
+      const alist = new Alist([1, 2, 3, 4, 5, 6]);  
+      it("get a string",function () {
+        assert.equal(alist.toString(),"123456");
+      })
+    })
+
+    describe("alist, clear",function () {
+      const alist = new Alist([1, 2, 3, 4, 5, 6]);
+      alist.addStart(7);
+      alist.delPosition(3);
+      alist.clear();
+      let array = alist.array;  
+      it("clear changes",function () {
+        assert.deepEqual(array,[1, 2, 3, 4, 5, 6]);
+      })
+    })
+
+    describe("alist, min",function () {
+      const alist = new Alist([1, 2, 3, 4, 5, 6]);  
+      it("find min",function () {
+        assert.equal(alist.min(),1);
+      })
+    })
+
+    describe("alist, max",function () {
+      const alist = new Alist([1, 2, 3, 4, 5, 6]);  
+      it("find max",function () {
+        assert.equal(alist.max(),6);
+      })
+    })
+
+    describe("alist, minIndex",function () {
+      const alist = new Alist([1, 2, 3, 4, 5, 6]);  
+      it("find min index",function () {
+        assert.equal(alist.minIndex(),0);
+      })
+    })
+
+    describe("alist, maxIndex",function () {
+      const alist = new Alist([1, 2, 3, 4, 5, 6]);  
+      it("find max index",function () {
+        assert.equal(alist.maxIndex(),5);
+      })
+    })
+    
+    describe("alist, sort",function () {
+      const alist = new Alist([1,5,2,4,3]);  
+      it("sort array",function () {
+        assert.deepEqual(alist.sort(),[1,2,3,4,5]);
+      })
+    })
+
+    describe("alist, reverse",function () {
+      const alist = new Alist([1,5,2,4,3]);  
+      it("reverse array",function () {
+        assert.deepEqual(alist.reverse(),[3,4,2,5,1]);
+      })
+    })
+    
+    describe("alist, halfReverse",function () {
+      const alist = new Alist([1,5,2,4,3,7]);  
+      it("Halfreverse array",function () {
+        assert.deepEqual(alist.halfReverse(),[2,5,1,7,3,4]);
+      })
+      it("Halfreverse array",function () {
+        alist.clear();
+        alist.addEnd(8);
+        assert.deepEqual(alist.halfReverse(),[2,5,1,4,8,7,3]);
+      })
+    })
+
+    
+
+
+
+  </script>
+  
+  <script>
+    mocha.run();
+  </script>
+        
+  
+  </body>
+  </html>
