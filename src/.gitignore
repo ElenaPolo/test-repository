@@ -1,0 +1,13 @@
+.idea
+.vscode
+src/calculator/test
+node_modules
+*.txt
+*.iml
+out
+gen
+build
+.DS_Store
+coverage
+*.db
+.nyc_output
